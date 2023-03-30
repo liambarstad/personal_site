@@ -1,0 +1,628 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'animations.scss';
+
+* {
+  font-family: headers;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-border {
+  border-style: none !important;
+}
+
+.white-hover {
+  cursor: pointer;
+}
+
+.white-hover * {
+  cursor: pointer;
+}
+
+.white-hover:hover {
+  color: $gray;
+  background-color: $offwhite-seethrough;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.full-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: $gray;
+  overflow: hidden;
+  position: relative;
+  perspective: 2px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.floating-modal {
+  position: absolute;
+  font-size: 1.75em;
+  color: $white;
+  line-height: 1.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.header-container {
+  width: 100%;
+  text-align: center;
+}
+
+.floating-modal h1 {
+  font-size: 2em;
+  font-family: headers;
+  margin: 0;
+  display: inline-block;
+  line-height: 1em;
+}
+
+.floating-modal h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.floating-modal p {
+  font-size: 0.6em;
+  font-family: $detail-font;
+}
+
+.modal {
+  border-radius: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+.value {
+  width: 10em;
+  text-align: center;
+}
+
+.value:first-child {
+  padding-right: 1em;
+}
+
+.value:last-child {
+  padding-left: 1em;
+}
+
+.description {
+  line-height: 1em;
+}
+
+.core-value {
+  //width: 40em;
+}
+
+.gray-background {
+  background-color: $gray-seethrough;
+  color: $white;
+}
+
+.maroon-background {
+  background-color: $maroon; 
+}
+
+.white-background {
+  background-color: $offwhite-seethrough; 
+  color: $gray;
+}
+
+.skill-list {
+  font-size: 0.6em;
+  flex-direction: column;
+  display: flex;
+  max-height: 50vh;
+  flex-wrap: wrap;
+}
+
+#profile-image {
+  height: 10em;
+  width: 10em;
+  border-radius: 100%;
+  border-style: solid;
+  border-color: $softorange;
+  border-width: 4px;
+}
+
+#skills-summary {
+  font-family: $detail-font; 
+  font-size: 0.6em;
+  line-height: 1.5em;
+  display: inline-block;
+  max-width: 40em;
+  text-align: left;
+  vertical-align: top;
+  margin-top: 4em;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.skill {
+  width: auto;
+  display: inline-block;
+  padding: 0.7em;
+  background-color: $softred;
+  border-radius: 0.7em;
+  cursor: pointer;
+  margin: 0.1em;
+}
+
+.skill-name {
+  display: inline-block;
+  position: relative;
+}
+
+.skills-modal {
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+}
+
+.skills-modal.selected {
+  width: 0;
+  animation-name: expandright;
+  animation-duration: 0.12s;
+  animation-fill-mode: forwards;
+  -webkit-animation: expandright 0.12s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.skill-header {
+  margin: 0.5em;
+  padding: 0.5em;
+  height: 25%;
+}
+
+.skill-table-item {
+  text-align: left;
+  padding-right: 0.7em;
+  padding-left: 0.7em;
+  float: left;
+}
+
+.skill-table-item:last-child {
+  float: right;
+}
+
+.skill-table-row {
+  color: $softorange;
+  border-color: $maroon;
+  border-style: solid;
+  border-width: 0px 1px 1px 0px;
+  cursor: pointer;
+  min-width: 50%;
+}
+
+.skill-table-row:hover {
+  border-color: $white;
+}
+
+.skill-table-row:hover .skill-table-item {
+  color: $white;
+}
+
+.skill-description {
+  margin: 0.5em;
+  padding: 0.5em;
+  padding-bottom: 1em;
+  line-height: 1.5em;
+  background-color: $softred; 
+  border-radius: 0.5em;
+  text-indent: 1em;
+}
+
+.inner-modal {
+  opacity: 0;
+  padding-bottom: 1em;
+  border-radius: 0.5em;
+}
+
+.inner-modal.selected {
+  opacity: 0;
+  animation-name: skillselect;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  -webkit-animation: skillselect 0.25s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.list-item {
+  font-size: 0.8em;
+  padding: 1em;
+  display: block;
+  margin-bottom: 2em;
+}
+
+.gray-background .list-item-name {
+  border-color: $kindawhite;
+}
+
+.list-item-name {
+  font-size: 0.8em;
+  width: 12em;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  border-color: $gray;
+  vertical-align: middle;
+}
+
+.list-item-column {
+  font-size: 0.6em;
+  padding-right: 2em;
+  padding-left: 2em;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  border-color: $gray;
+  vertical-align: top;
+}
+
+.list-item-column:last-child {
+  border-style: none;
+}
+
+.list-item-image-container {
+  vertical-align: middle;
+  padding-left: 1em;
+}
+
+.list-item-image {
+  height: 3em;
+  width: 3em;
+  border-radius: 100%;
+  border-width: 2px;
+  border-color: $maroon;
+}
+
+.list-item-image-lg-container {
+  width: 2em;
+  vertical-align: middle;
+}
+
+.list-item-image-lg {
+  width: 10em;
+  height: 6.5em;
+  border-radius: 10%;
+}
+
+.fadein {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  -webkit-animation: fadein 0.25s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.progress-selection-bar {
+  position: fixed;
+  left: 1.5em;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.progress-selection-container {
+  margin-bottom: 2em;
+}
+
+.progress-selection-container:hover .progress-selection-name {
+  display: block;
+}
+
+.progress-selection-container:hover .progress-selection {
+  border-color: $white;
+}
+
+.progress-selection {
+  border-radius: 100%;
+  height: 1em;
+  width: 1em;
+  background-color: $lightgray;
+  border-style: solid;
+  border-color: $lightgray;
+  border-width: 0.2em;
+  display: inherit;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+
+.progress-selection:last-child {
+  margin-bottom: 0em;
+}
+
+.progress-selection:hover {
+  border-color: $white;
+  transition-duration: 0.2s;
+}
+
+.progress-selection-name {
+  display: none;
+  color: $kindawhite;
+  position: absolute;
+  left: 1.5em;
+  transform: translateY(-180%);
+  padding: 0.5em;
+  background-color: $gray-seethrough;
+}
+
+.progress-selection.selected {
+  border-color: $kindawhite;
+  //transition-duration: 0.5s;
+}
+
+.experience-description {
+  line-height: 1.8em;
+  font-size: 0.9em;
+}
+
+.experience-description * {
+  font-family: $detail-font; 
+}
+
+.full-page-display {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  line-height: 3em;
+}
+
+#contact-button {
+  background-color: transparent;
+  padding: 2em;
+  color: $softorange;
+  border-color: $softorange;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1em;
+  cursor: pointer;
+  font-size: 1.2em;
+  outline: none;
+}
+
+#contact-button:hover {
+  background-color: $softorange;
+  color: $gray;
+  transition-duration: 0.5s;
+}
+
+.contact-detail {
+  font-family: $detail-font;
+  width: 30em;
+  font-size: 0.9em;
+  display: inline-block;
+  color: $white;
+  line-height: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+#optimized {
+  line-height: 1em;
+  font-size: 0.8em;
+}
+
+#optimized * {
+  font-family: $detail-font;
+  color: $kindawhite;
+}
+
+#optimized a:hover {
+  color: $softorange;
+  transition-duration: 0.5s;
+}
+
+#contact-form {
+  width: 50em;
+  display: inline-block;
+  border-style: solid;
+  padding: 1em;
+  border-radius: 1em;
+  border-color: $softorange;
+  border-width: 1px;
+  color: $softorange;
+  background-color: $gray;
+  position: relative;
+}
+
+#contact-form-header {
+  position: absolute;
+  top: -1.7em;
+  background-color: $gray;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  font-size: 1.5em;
+}
+
+.contact-message-container {
+  border-width: 1px;
+  border-color: $softorange;
+  border-style: solid;
+  border-radius: 1em;
+}
+
+.contact-input {
+  padding: 0.5em 0em 0.5em 0.5em;
+  margin: 0px;
+  width: 100%;
+  font-size: 1em;
+  font-family: $detail-font;
+  color: $white;
+  border-width: 1px;
+  border-color: $softorange;
+  border-style: solid;
+  border-radius: 1em;
+  background-color: transparent;
+  outline: none;
+}
+
+textarea.contact-input {
+  height: 15em;
+  resize: none;
+}
+
+.contact-label {
+  width: 22%;
+  line-height: 1em;
+  font-size: 0.8em;
+  font-family: $detail-font;
+}
+
+#contact-submit {
+  padding: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+  background-color: $gray;
+  border-style: solid;
+  border-color: $softorange;
+  border-width: 0px 1px;
+  font-size: 1em;
+  color: $softorange;
+  outline: none;
+  bottom: -1.2em;
+  position: absolute;
+}
+
+#contact-submit:hover {
+  color: $white;
+}
+
+#contact-background {
+  position: absolute;
+  height: auto;
+  width: 100%;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#social-links {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-style: solid;
+  border-width: 0px 3px 3px 3px;
+  background-color: rgba(230,230,230,0.2);
+  border-color: rgba(230,230,230,0.4);
+  padding: 1em;
+  border-radius: 0px 0px 1em 1em;
+}
+
+.social-link {
+  line-height: 0;
+  padding-bottom: 1em;
+  display: inherit;
+}
+
+.social-link:last-child {
+  padding-bottom: 0;
+}
+
+.social-link-image {
+  height: 3em;
+  width: 3em;
+}
+
+.contact-message {
+  border-style: solid;
+  width: 20em;
+  display: inline-block;
+  position: relative;
+  line-height: 1.5em;
+  color: $softorange;
+  border-color: $softorange;
+  border-width: 1px;
+  border-radius: 1em;
+  font-family: $detail-font;
+  padding: 1em;
+  padding-top: 1.5em;
+  background-color: $gray;
+}
+
+.contact-error {
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+  padding-left: 2em;
+  font-size: 0.7em;
+  font-family: $detail-font;
+  color: $white;
+}
+
+#attachments {
+  margin-bottom: 0.5em;
+  margin-left: 0.35em;
+  line-height: 1.7em;
+}
+
+.attachment-container {
+  display: inline;
+}
+
+.attachment-icon {
+  display: none;
+}
+
+.attachment-container:last-child .attachment-icon {
+  display: inline-block;
+  height: 1.5em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: $kindawhite;
+}
+
+.attachment-container:last-child .attachment-icon:hover {
+  background-color: $white;
+}
+
+.attachment-info {
+  display: inline;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  padding: 0.2em;
+  background-color: $kindawhite;
+  border-radius: 0.3em;
+  color: $maroon;
+  font-size: 1.1em;
+}
+
+.attachment-container:last-child .attachment-info {
+  display: none;
+} 
+
+.attachment-input {
+  display: none;
+}
+
+.attachment-name {
+  font-family: $detail-font;
+}
+
+.attachment-delete {
+  margin-left: 0.2em;
+  padding-left: 0.2em;
+  border-style: solid;
+  border-width: 0px 0px 0px 1px;
+  cursor: pointer;
+}
+
+.attachment-delete:hover {
+  color: $softred;
+}
