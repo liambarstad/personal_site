@@ -1,0 +1,4 @@
+Gemfile.lock
+package-lock.json
+yarn.lock
+/node_modules
