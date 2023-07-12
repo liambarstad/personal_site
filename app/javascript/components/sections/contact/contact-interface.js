@@ -48,6 +48,7 @@ export default class ContactInterace extends Component{
       <div className='contact-message'>
         <h1 id='contact-form-header' style={{ top: '-1.2em' }}>Crap!</h1>
         {this.state.submitErr}
+        <p style={{fontFamily: 'inherit', color: 'white'}}>Please contact me at liambarstad@gmail.com</p>
       </div>
     )
   }

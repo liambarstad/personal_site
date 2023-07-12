@@ -36,10 +36,6 @@ export default class LiamIsMe extends Component {
           minScroll={this.state.minScroll}
         />
         <div ref={this.sectionsRef}>
-          <MissionSection
-            minScroll={this.state.minScroll}
-            maxScroll={this.state.maxScroll}
-          />
           <SkillsSection
             version={2}
             minScroll={this.state.minScroll}
@@ -53,10 +49,10 @@ export default class LiamIsMe extends Component {
             minScroll={this.state.minScroll}
             maxScroll={this.state.maxScroll}
           />
-          <BlogSection
+          {/*<BlogSection
             minScroll={this.state.minScroll}
             maxScroll={this.state.maxScroll}
-          />
+          />*/}
           <ContactSection 
             minScroll={this.state.minScroll}
             maxScroll={this.state.maxScroll}

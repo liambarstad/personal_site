@@ -22,7 +22,7 @@ export default class ProgressBar extends Component {
     if (!!sectionsRef.current && !!sectionsRef.current.children) {
       return (
         <div className='progress-selection-bar'>
-          <div>
+          <div className='progress-selection-background'>
             { this.progressSections(sectionsRef.current.children) }
           </div>
         </div>

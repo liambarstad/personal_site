@@ -18,10 +18,10 @@ class MailController < ApplicationController
         .inquire(
           email: @inquiry_params[:email],
           organization: @inquiry_params[:organization],
-          title: @inquiry_params[:title],
+          name: @inquiry_params[:name],
           message: @inquiry_params[:message],
           attached_resources: format_attachments
-        ).deliver_later
+        ).deliver_now
       render json: { success: true }, head: :ok
     end
 
@@ -37,7 +37,7 @@ class MailController < ApplicationController
     end
 
     def check_params_validity!
-      @inquiry_params = params.require(:inquiry).permit(:email, :title, :organization, :message, attachments: {})
+      @inquiry_params = params.require(:inquiry).permit(:email, :name, :organization, :message, attachments: {})
       check_info_validity!
       check_attachments_validity!
     end
@@ -45,7 +45,7 @@ class MailController < ApplicationController
     def check_info_validity!
       if not @inquiry_params[:email] or
           not @inquiry_params[:organization] or
-          not @inquiry_params[:title] or @inquiry_params[:title].length == 0 or
+          not @inquiry_params[:name] or @inquiry_params[:name].length == 0 or
           not @inquiry_params[:message] or @inquiry_params[:message].length == 0 or
           not /^[\w-]{1,}@[\w-]{1,}\.[\w]{2,5}$/.match? @inquiry_params[:email]
         raise ArgumentError

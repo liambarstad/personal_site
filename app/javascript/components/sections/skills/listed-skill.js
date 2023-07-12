@@ -1,24 +1,37 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
 
-export default class ListedSkill extends Component {
+function ListedSkill(props) {
+  const { name, description } = props.skillInfo
 
-  stars(num) {
-    let starEls = []
-    for (let i=0; i < num; i++) {
-      starEls.push(this.props.starImg)
-    }
-    return starEls
+  const [selected, setSelected] = useState(false)
+
+  const deleteDescription = (event) => {
+    document.querySelectorAll('#skill-description').forEach(el => el.remove())
+    setSelected(false)
+    document.removeEventListener('click', deleteDescription, true)
   }
 
-  render() {
-    const { name, star_rating, years_of_experience, description } = this.props.skillInfo 
-    return (
-      <div className='skill-table-row'>
-        <span className='skill-table-item'>{name}</span>
-      {/*<span className='skill-table-item'>{this.stars(years_of_experience)}</span>*/}
-        <span className='skill-table-item'>{this.stars(star_rating)}</span>
-      {/*<td>{description}</td>*/}
-      </div>
-    )
+  const displayDescription = (event) => {
+    const row = event.target.closest('tr')
+    document.querySelectorAll('#skill-description').forEach(el => el.remove())
+    const descriptionEl = document.createElement('td')
+    descriptionEl.id = 'skill-description'
+    descriptionEl.colSpan = 4
+    descriptionEl.innerText = description
+    row.parentElement.insertBefore(descriptionEl, row.nextSibling)
+    setSelected(true)
+    document.addEventListener('click', deleteDescription, true)
   }
+
+  return (
+    <td 
+      className={`skill-table-row ${selected ? 'selected' : ''}`}
+      onClick={displayDescription}
+    >
+      <span className='skill-table-item'>{name}</span>
+    </td>
+  )
 }
+
+export default ListedSkill

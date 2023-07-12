@@ -1,10 +1,13 @@
 class InquiriesMailer < ApplicationMailer
   default to: ENV['inquiry_email']
 
-  def inquire(email:, title:, message:, organization:, attached_resources: [])
+  def inquire(email:, name:, message:, organization:, attached_resources: [])
     add_attachments attached_resources
+    @email = email
+    @name = name
+    @organization = organization
     @message = message
-    mail reply_to: email, subject: "#{organization.upcase} -- #{title}"
+    mail reply_to: email, subject: "Resume Inquiry from #{name} - #{organization}"
   end
 
   private

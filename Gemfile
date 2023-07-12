@@ -9,6 +9,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '>= 6.0.0.rc.6'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
+gem 'sendgrid-ruby'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'react-rails', '~> 2.7', '>= 2.7.1'

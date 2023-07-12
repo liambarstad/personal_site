@@ -63,16 +63,19 @@ export default class FullPageImage extends Component {
   render() {
     this.setBackground()
     return (
-      <div 
-        data-name={this.props.sectionName}
-        className='full-page'
-        style={{
-          height: (this.props.height || '250vh'),
-          background: this.backgroundSpecs(),
-        }}
-        ref={this.containerRef}
-      >
-        {this.props.children}
+      <div style={{width: '100%', backgroundColor: 'black'}}>
+        <div 
+          data-name={this.props.sectionName}
+          className='full-page'
+          style={{
+            height: (this.props.height || '250vh'),
+            background: this.backgroundSpecs(),
+            ...this.props.style
+          }}
+          ref={this.containerRef}
+        >
+          {this.props.children}
+        </div>
       </div>
     )
   }

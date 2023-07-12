@@ -5,18 +5,29 @@ import ListedSkill from './skills/listed-skill'
 
 export default class SkillsSection extends Component {
   state = {
-    starImg: <img src='/api/v1/images/star.png' style={{ height: '1em', width: '1em' }} />,
-    skills: []
+    skills: {}
   }
 
   componentDidMount() {
     fetch('/api/v1/skills.json')
       .then(response => response.json())
       .then((res) => {
-        let skills = res.map(skill => this.formatSkill(skill))
-        skills = skills
-          .sort((a, b) => { return b.props.skillInfo.years_of_experience - a.props.skillInfo.years_of_experience })
-          .sort((a, b) => { return b.props.skillInfo.star_rating - a.props.skillInfo.star_rating })
+        let skills = {}
+        Object.keys(res).forEach(key => skills[key] = (() => {
+          let chunks = []
+
+          for (let i=0; i < res[key].length; i+=4) {
+            chunks.push(res[key].slice(i, i + 4))
+          }
+
+          return chunks.map((chunk, index) =>
+            <tr key={index}>
+              {chunk.map((skill) => 
+                this.formatSkill(skill)
+              )}
+            </tr>
+          )
+        })())
         this.setState({ skills })
       })
   }
@@ -25,42 +36,35 @@ export default class SkillsSection extends Component {
     return (
       <ListedSkill
         skillInfo={skill} 
-        selectSkill={this.clearSkills.bind(this)}
-        selected={false}
         starImg={this.state.starImg}
       />
     )
   }
 
-  clearSkills() {
-
-  }
-
   render() {
     return (
-      <FullPageImage
-        imageName='neurons'
+      <FullPageImage 
+        imageName='particles'
+        layerImages={6}
+        height='2200px'
         minScroll={this.props.minScroll}
         maxScroll={this.props.maxScroll}
-        backgroundPosFactor={2.5}
-        height='170vh'
+        backgroundPosFactor={7}
         sectionName='skills'
       >
         <FloatingInfo
-          offsetTop='10vh'
-          offsetLeft='0vw'
+          position='relative'
           showWhenWithin='15vh'
           minScroll={this.props.minScroll}
           maxScroll={this.props.maxScroll}
         >
           <div className='header-container'>
-            <h1 className='modal gray-background'>Skills</h1>
+            <h1 className='modal gray-background'>Liam Barstad</h1>
           </div>
         </FloatingInfo>
 
         <FloatingInfo
-          offsetTop='40vh'
-          offsetLeft='10vw'
+          position='relative'
           showWhenWithin='5vh'
           minScroll={this.props.minScroll}
           maxScroll={this.props.maxScroll}
@@ -69,14 +73,71 @@ export default class SkillsSection extends Component {
           <div style={{ textAlign: 'center', paddingBottom: '1.43em' }}>
             <img src='/api/v1/images/profile_picture.jpg' id='profile-image' />
             <div id='skills-summary' className='modal gray-background'>
-              <strong>Summary:</strong> I am a back-end oriented engineer with 2-3 years of professional experience, and a passion for abstracting away the chaos of data. I believe that we live in one of the most scientifically interesting periods in history, where the human condition is documented every day through user data and interactions. I want to work with other passionate and driven individuals to push the envelope of what is possible.
+              Hi, my name is Liam and I'm a multi-talented software engineer with 5 years of experience in big data engineering, machine learning, and web development. I have a long and proven track record of helping companies make their data work for them. Let's discuss your feature wishlist, and ask your data the right questions. You may be surprised how much a small bit of analysis can change your perspective. I build software that produces insights, learns from them, automates them, and provides novel offerings to the end user. Help me push the envelope of what is possible, and let's build the future together!
+              <br></br>
+              <strong className='skills-annotation'>Click the skills below for more info</strong> 
             </div>
           </div>
-
-          <div className='skill-list modal gray-background'>
-            {this.state.skills}
-          </div>
         </FloatingInfo>
+
+        <div style={{width: '80vw', marginLeft: '10vw', marginRight: '10vw'}}>
+          <FloatingInfo
+            position='relative'
+            showWhenWithin='100vh'
+            minScroll={this.props.minScroll}
+            maxScroll={this.props.maxScroll}
+          >
+            <div className='skill-list modal gray-background'>
+              <h2 style={{textAlign: 'center', marginBottom: '1em'}}>Languages</h2>
+              <table className='skill-table'>
+                {this.state.skills.languages}
+              </table>
+            </div>
+          </FloatingInfo>
+
+          <FloatingInfo
+            position='relative'
+            showWhenWithin='85vh'
+            minScroll={this.props.minScroll}
+            maxScroll={this.props.maxScroll}
+          >
+            <div className='skill-list modal gray-background'>
+              <h2 style={{textAlign: 'center', marginBottom: '1em'}}>Libraries</h2>
+              <table className='skill-table'>
+                {this.state.skills.libraries}
+              </table>
+            </div>
+          </FloatingInfo>
+
+          <FloatingInfo
+            position='relative'
+            showWhenWithin='85vh'
+            minScroll={this.props.minScroll}
+            maxScroll={this.props.maxScroll}
+          >
+            <div className='skill-list modal gray-background'>
+              <h2 style={{textAlign: 'center', marginBottom: '1em'}}>Machine Learning</h2>
+              <table className='skill-table'>
+                {this.state.skills.machine_learning}
+              </table>
+            </div>
+          </FloatingInfo>
+
+          <FloatingInfo
+            position='relative'
+            showWhenWithin='85vh'
+            minScroll={this.props.minScroll}
+            maxScroll={this.props.maxScroll}
+          >
+            <div className='skill-list modal gray-background'>
+              <h2 style={{textAlign: 'center', marginBottom: '1em'}}>DevOps</h2>
+              <table className='skill-table'>
+                {this.state.skills.devops}
+              </table>
+            </div>
+          </FloatingInfo>
+        </div>
+        
       </FullPageImage>
     )
   }

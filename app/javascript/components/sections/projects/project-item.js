@@ -13,18 +13,20 @@ export default class ProjectItem extends Component {
       >
         <tr className='modal gray-background list-item'>
           <td className='list-item-image-lg-container'>
-            <a href={'/projects/' + this.props.url} target='_blank'>
-              <img
-                className='list-item-image-lg'
-                src={'/api/v1/images/' + this.props.imgSrc + '.jpg'}
-              />
-            </a>
+            <img
+              className='list-item-image-lg'
+              src={'/api/v1/images/' + this.props.imgSrc + '.jpg'}
+            />
           </td>
-          <td className='list-item-name'>{this.props.name}</td>
-          <td className='list-item-column'>
-            Date Created: {this.props.date}
+          <td className='list-item-column project-column'>
             <div className='experience-description'>
-              What it Does:
+              <p className='project-header'>
+                {this.props.name} - {this.props.date}
+                {this.props.url ? <a className='project-link' href={'https://'+this.props.url}>{this.props.url}</a> : ''}
+                {this.props.github ? <a className='project-link' href={'https://'+this.props.github}>
+                  <img src='/api/v1/images/github.png' className='project-github-link'/>
+                </a> : ''}
+              </p>
               {this.props.children}
             </div>
           </td>

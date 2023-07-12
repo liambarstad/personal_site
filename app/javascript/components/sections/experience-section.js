@@ -13,14 +13,16 @@ export default class ExperienceSection extends Component {
     return (
       <FullPageImage
         imageName='neurons3'
+        height='2200px'
+        style={{paddingTop: '30px'}}
         minScroll={this.props.minScroll}
         maxScroll={this.props.maxScroll}
         backgroundPosFactor={2.5}
         sectionName='experience'
       >
+        <br></br>
         <FloatingInfo
-          offsetTop='10vh'
-          offsetLeft='0vw'
+          position='relative'
           showWhenWithin='15vh'
           minScroll={this.props.minScroll}
           maxScroll={this.props.maxScroll}
@@ -30,7 +32,7 @@ export default class ExperienceSection extends Component {
           </div>
         </FloatingInfo>
 
-        <table style={{ position: 'absolute', top: '40vh', left: '5vw', right: '5vw' }}>
+        <table style={{ position: 'relative', left: '10vw', right: '10vw', width: '80vw'}}>
           <tbody>
             <tr>
               <th />
@@ -43,34 +45,35 @@ export default class ExperienceSection extends Component {
               start={this.startOffset}
               minScroll={this.props.minScroll}
               maxScroll={this.props.maxScroll}
-              imgSrc='quantum_metric'
-              company='Quantum Metric'
-              position='Research Support Engineer'
-              timeWorked='1 year 4 months'
+              imgSrc='att'
+              imgFormat='png'
+              company='AT&T'
+              position='Data Engineer'
+              timeWorked='2 years'
             >
               <ul>
-                <li>Spearheaded Quantum Metric’s client benchmarking platform, developing the data pipeline using Apache Airflow and Python, deploying with Docker and Kubernetes on Google Cloud Platform, and assisting in the creation of the productized interface in Flask and React.</li>
-                <li>Successfully coded a recurrent Kernel Two-Sample analysis, in BigQuery SQL, for the analytics teams of enterprise-level clients.</li>
-                <li>Provided the data for published news articles, including articles analyzing changes in customer behavior due to COVID-19.</li>
-                <li>Created a subscription auditing system in Express.js to query multiple databases and email health checks to customer success representatives.</li>
+                <li>Developed real-time Anomaly Detection for systems monitoring, trained using MLFlow and deployed with Kubeflow</li>
+                <li>Created tooling for operations monitoring and ETL, using Flask/React/Airflow/SQL tech stack</li>
+                <li>Trained LSTMs in Pytorch and graph-based algorithms in Neo4j for customer journey analysis</li>
+                <li>Performed data analysis on behavioral metrics in SQL for root cause analysis and user categorization across a variety of datasets</li>
               </ul>
             </ExperienceItem>
-              
+
             <ExperienceItem
               index={1}
               start={this.startOffset}
               minScroll={this.props.minScroll}
               maxScroll={this.props.maxScroll}
-              imgSrc='zober'
-              company='Zober'
-              position='VP of Software'
-              timeWorked='9 months'
+              imgSrc='align-tech'
+              imgFormat='png'
+              company='Align Tech and Finance'
+              position='Machine Learning Consultant'
+              timeWorked='2 months'
             >
               <ul>
-                <li>Lead a team of up to 4 developers in an Agile environment to create and deploy the MVP, using Ruby on Rails, JavaScript, and React.</li>
-                <li>Collaborated with the team to design the Postgres database, using composed SQL tables instead of inherited tables to account for a growing number of end-user classifications.</li>
-                <li>Created the checkout funnel from scratch, using Stripe, Rails remote routes, and customer engagement best practices.</li>
-                <li>Was the primary contributor to the front end, utilizing HTML5/CSS3, object-oriented JavaScript, React, and the Rails asset pipeline.</li>
+                <li>Developed profitable Deep Reinforcement Learning (DQN/DDPG) solutions in Tensorflow for trading and arbitrage</li>
+                <li>Performed quantitative analysis on real-time trade books</li>
+                <li>Deployed pipelines to AWS SageMaker and created the infrastructure for the model to make trades</li>
               </ul>
             </ExperienceItem>
 
@@ -79,8 +82,43 @@ export default class ExperienceSection extends Component {
               start={this.startOffset}
               minScroll={this.props.minScroll}
               maxScroll={this.props.maxScroll}
+              imgSrc='quantum_metric'
+              company='Quantum Metric'
+              position='Research Support Engineer'
+              timeWorked='1 year 4 months'
+            >
+              <ul>
+                <li>Generated custom analyses, including a kernel two-sample test in Google Bigquery SQL, for enterprise clients</li>
+                <li>Wrote back-end pipelines in Airflow, Kubernetes, and Google Cloud Platform (GCP) for custom reports</li>
+                <li>Performed feature extraction in ETL processes supporting the research team, for use in Data Science and Machine Learning on a large-scale behavioral dataset</li>
+              </ul>
+            </ExperienceItem>
+              
+            <ExperienceItem
+              index={3}
+              start={this.startOffset}
+              minScroll={this.props.minScroll}
+              maxScroll={this.props.maxScroll}
+              imgSrc='zober'
+              company='Zober'
+              position='Senior Web Developer'
+              timeWorked='9 months'
+            >
+              <ul>
+                <li>Lead and collaborated with a team of 4 developers, using agile and SCRUM methodologies, communicating with leadership and actualizing business requirements</li>
+                <li>Created the first iteration of a production ecommerce product in Ruby on Rails and React</li>
+                <li>Developed authenticated user funnels and subscription pipelines, building the framework for future revenue of the SaaS service</li>
+                <li>Automated lead generation and outreach to B2B clients</li>
+              </ul>
+            </ExperienceItem>
+
+            <ExperienceItem
+              index={4}
+              start={this.startOffset}
+              minScroll={this.props.minScroll}
+              maxScroll={this.props.maxScroll}
               imgSrc='independent_contractor'
-              company='Independent Contractor'
+              company='Freelance'
               position='Various Positions'
               timeWorked='5 months'
             >
@@ -89,40 +127,6 @@ export default class ExperienceSection extends Component {
                 <li>Collaborated with Borsetta in its infancy, a company utilizing a blockhain for the tracking and distribution of luxury goods.</li>
                 <li>Worked with startups as a part-time contrubutor, learning the basics of production-level development and putting agile into practice.</li>
                 <li>Took a short-term government IT contract for hardware upkeep and system networking.</li>
-              </ul>
-            </ExperienceItem>
-
-            <ExperienceItem
-              index={3}
-              start={this.startOffset}
-              minScroll={this.props.minScroll}
-              maxScroll={this.props.maxScroll}
-              imgSrc='turing_school'
-              company='Turing School of Software and Design'
-              position='Back-End Development'
-              timeWorked='7 months'
-            >
-              <ul>
-                <li>Completed Turing's critically acclaimed, immersive, 7 month long program, focusing on back end development in Ruby on Rails and JavaScript.</li>
-                <li>Founded the school's Python interest group, which would later become the Machine Learning club.</li>
-                <li>Gave public presentations on AWS, Turing completeness, and the rule of least power for the school and potential employers.</li>
-              </ul>
-            </ExperienceItem>
-          
-            <ExperienceItem
-              index={4}
-              start={this.startOffset}
-              minScroll={this.props.minScroll}
-              maxScroll={this.props.maxScroll}
-              imgSrc='front_range'
-              company='Front Range College'
-              position='Associate of Applied Mathematics'
-              timeWorked='2 years'
-            >
-              <ul>
-                <li>In order to progress at a faster rate, studied 3 semesters worth of calculus over the course of one semester, using only the textbook as a reference, and passing the final exam.</li>
-                <li>Made the honor role for 3 out of 4 semesters, with an average GPA over 3.5</li>
-                <li>Took programming courses in C++, my first introduction to the world of programming</li>
               </ul>
             </ExperienceItem>
 

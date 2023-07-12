@@ -18,14 +18,13 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   config.action_mailer.perform_caching = false
-
   config.action_mailer.delivery_method = :smtp
-
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp.sendgrid.net',
     port: 587,
-    user_name: ENV['smtp_username'],
-    password: ENV['smtp_password'],
+    domain: ENV['SMTP_DOMAIN'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true,
   }
@@ -33,9 +32,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
-
   config.active_support.disallowed_deprecation = :log
-
   config.active_support.disallowed_deprecation_warnings = []
 
   config.log_formatter = ::Logger::Formatter.new

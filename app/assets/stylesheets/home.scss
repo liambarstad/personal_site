@@ -34,7 +34,7 @@ a {
 
 .full-page {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: $gray;
   overflow: hidden;
   position: relative;
@@ -48,8 +48,8 @@ a {
   font-size: 1.75em;
   color: $white;
   line-height: 1.2em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .header-container {
@@ -58,7 +58,7 @@ a {
 }
 
 .floating-modal h1 {
-  font-size: 2em;
+  font-size: 35px;
   font-family: headers;
   margin: 0;
   display: inline-block;
@@ -126,24 +126,32 @@ a {
   flex-wrap: wrap;
 }
 
+.skills-annotation {
+  font-family: inherit;
+  float: right;
+  font-size: 14px;
+  color: $softgreen;
+  padding-top: 7px;
+}
+
 #profile-image {
   height: 10em;
   width: 10em;
   border-radius: 100%;
   border-style: solid;
-  border-color: $softorange;
+  border-color: $softgreen;
   border-width: 4px;
 }
 
 #skills-summary {
   font-family: $detail-font; 
-  font-size: 0.6em;
+  font-size: 16px;
   line-height: 1.5em;
   display: inline-block;
   max-width: 40em;
   text-align: left;
   vertical-align: top;
-  margin-top: 4em;
+  margin-top: 2em;
   margin-left: 3em;
   margin-right: 3em;
 }
@@ -184,6 +192,15 @@ a {
   height: 25%;
 }
 
+#skill-description {
+  font-size: 14px;
+  font-family: Trebuchet MS, sans-serif;
+  line-height: 1.5;
+  padding: 14px;
+  background-color: rgba(255,255,255,0.7);
+  color: black;
+}
+
 .skill-table-item {
   text-align: left;
   padding-right: 0.7em;
@@ -191,24 +208,26 @@ a {
   float: left;
 }
 
-.skill-table-item:last-child {
-  float: right;
-}
-
 .skill-table-row {
-  color: $softorange;
-  border-color: $maroon;
+  color: $softgreen;
+  border-color: $olivegreen;
   border-style: solid;
   border-width: 0px 1px 1px 0px;
   cursor: pointer;
-  min-width: 50%;
+  width: 25%;
+  padding: 5px;
 }
 
-.skill-table-row:hover {
+.skill-table-row.selected {
+  background-color: rgba(255,255,255,0.7);
+  color: $olivegreen;
+}
+
+.skill-table-row:not(.selected):hover {
   border-color: $white;
 }
 
-.skill-table-row:hover .skill-table-item {
+.skill-table-row:not(.selected):hover .skill-table-item {
   color: $white;
 }
 
@@ -250,7 +269,7 @@ a {
 
 .list-item-name {
   font-size: 0.8em;
-  width: 12em;
+  width: 100px;
   text-align: center;
   padding-right: 2em;
   padding-left: 2em;
@@ -263,7 +282,6 @@ a {
 .list-item-column {
   font-size: 0.6em;
   padding-right: 2em;
-  padding-left: 2em;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   border-color: $gray;
@@ -276,7 +294,8 @@ a {
 
 .list-item-image-container {
   vertical-align: middle;
-  padding-left: 1em;
+  text-align: center;
+  width: 100px
 }
 
 .list-item-image {
@@ -290,12 +309,14 @@ a {
 .list-item-image-lg-container {
   width: 2em;
   vertical-align: middle;
+  padding-right: 15px;
 }
 
 .list-item-image-lg {
   width: 10em;
   height: 6.5em;
   border-radius: 10%;
+  object-fit: contain;
 }
 
 .fadein {
@@ -309,15 +330,22 @@ a {
 
 .progress-selection-bar {
   position: fixed;
-  left: 1.5em;
+  width: 10%;
   z-index: 1;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.progress-selection-container {
-  margin-bottom: 2em;
+.progress-selection-background {
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 15px;
+  padding: 10px;
+  margin: auto;
+}
+
+.progress-selection-container:last-child .progress-selection {
+  margin-bottom: 0;
 }
 
 .progress-selection-container:hover .progress-selection-name {
@@ -388,7 +416,6 @@ a {
   border-color: $softorange;
   border-style: solid;
   border-width: 1px;
-  border-radius: 1em;
   cursor: pointer;
   font-size: 1.2em;
   outline: none;
@@ -431,8 +458,7 @@ a {
   display: inline-block;
   border-style: solid;
   padding: 1em;
-  border-radius: 1em;
-  border-color: $softorange;
+  border-color: $olivegreen;
   border-width: 1px;
   color: $softorange;
   background-color: $gray;
@@ -450,22 +476,21 @@ a {
 
 .contact-message-container {
   border-width: 1px;
-  border-color: $softorange;
+  border-color: $olivegreen;
   border-style: solid;
-  border-radius: 1em;
 }
 
 .contact-input {
+  box-sizing: border-box;
   padding: 0.5em 0em 0.5em 0.5em;
   margin: 0px;
   width: 100%;
-  font-size: 1em;
+  font-size: 14px;
   font-family: $detail-font;
   color: $white;
   border-width: 1px;
-  border-color: $softorange;
+  border-color: $olivegreen;
   border-style: solid;
-  border-radius: 1em;
   background-color: transparent;
   outline: none;
 }
@@ -489,7 +514,7 @@ textarea.contact-input {
   cursor: pointer;
   background-color: $gray;
   border-style: solid;
-  border-color: $softorange;
+  border-color: $olivegreen;
   border-width: 0px 1px;
   font-size: 1em;
   color: $softorange;
@@ -513,6 +538,7 @@ textarea.contact-input {
 }
 
 #social-links {
+  /*
   position: absolute;
   right: 0;
   top: 0;
@@ -522,12 +548,12 @@ textarea.contact-input {
   border-color: rgba(230,230,230,0.4);
   padding: 1em;
   border-radius: 0px 0px 1em 1em;
+  */
 }
 
 .social-link {
-  line-height: 0;
-  padding-bottom: 1em;
-  display: inherit;
+  padding: 14px;
+  display: inline;
 }
 
 .social-link:last-child {
@@ -537,6 +563,7 @@ textarea.contact-input {
 .social-link-image {
   height: 3em;
   width: 3em;
+  vertical-align: middle;
 }
 
 .contact-message {
@@ -546,9 +573,8 @@ textarea.contact-input {
   position: relative;
   line-height: 1.5em;
   color: $softorange;
-  border-color: $softorange;
+  border-color: $olivegreen;
   border-width: 1px;
-  border-radius: 1em;
   font-family: $detail-font;
   padding: 1em;
   padding-top: 1.5em;
@@ -560,7 +586,7 @@ textarea.contact-input {
   margin: 0;
   line-height: 1em;
   padding-left: 2em;
-  font-size: 0.7em;
+  font-size: 12px;
   font-family: $detail-font;
   color: $white;
 }
@@ -585,7 +611,7 @@ textarea.contact-input {
   border-radius: 0.3em;
   cursor: pointer;
   vertical-align: middle;
-  background-color: $kindawhite;
+  background-color: $olivegreen;
 }
 
 .attachment-container:last-child .attachment-icon:hover {
@@ -594,13 +620,13 @@ textarea.contact-input {
 
 .attachment-info {
   display: inline;
-  margin-right: 0.2em;
-  margin-left: 0.2em;
-  padding: 0.2em;
-  background-color: $kindawhite;
+  margin: 0px 5px;
+  background-color: #567446;
+  padding: 5px;
   border-radius: 0.3em;
-  color: $maroon;
-  font-size: 1.1em;
+  color: black;
+  font-size: 14px;
+  vertical-align: middle;
 }
 
 .attachment-container:last-child .attachment-info {
@@ -616,13 +642,54 @@ textarea.contact-input {
 }
 
 .attachment-delete {
-  margin-left: 0.2em;
-  padding-left: 0.2em;
+  margin-left: 5px;
+  padding-left: 5px;
   border-style: solid;
   border-width: 0px 0px 0px 1px;
   cursor: pointer;
+  border-color: black;
+  color: #54263e;
 }
 
 .attachment-delete:hover {
   color: $softred;
+}
+
+.project-column {
+  margin-left: 30px;
+  border-style: solid !important;
+  border-width: 0px 0px 0px 1px;
+  border-color: rgba(255,255,255,0.6);
+  width: 100%;
+}
+
+.project-github-link {
+  height: 20px;
+  width: 20px;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.project-header {
+  font-size: inherit !important;
+  font-family: inherit !important;
+  border-style: solid;
+  border-width: 0px 0px 1px;
+  padding-left: 30px;
+  border-color: rgba(255,255,255,0.6);
+}
+
+.project-link {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.6);
+  color: $softgreen;
+}
+
+.softgreen {
+  color: $softgreen;
 }

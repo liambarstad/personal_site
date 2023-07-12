@@ -71,15 +71,15 @@ export default class ContactForm extends Component {
         method='post' 
         onSubmit={this.submitForm.bind(this)}
       >
-        <h1 id='contact-form-header'>Contact Me!</h1>
+        <h1 id='contact-form-header'>Contact Me</h1>
         <table style={{ textAlign: 'left', width: '100%', paddingBottom: '0.7em' }}>
           <thead><tr><th /><th /></tr></thead>
           <tbody>
             <tr>
-              <td className='contact-label'><label htmlFor='email'>Email:</label></td>
+              <td className='contact-label'><label htmlFor='name'>Your Name:</label></td>
               <td style={{ lineHeight: '1em' }}>
-                <input type='text' name='inquiry[email]' className='contact-input' />
-                { this.fieldError('inquiry[email]') }
+                <input type='text' name='inquiry[name]' className='contact-input' />
+                { this.fieldError('inquiry[name]') }
               </td>
             </tr>
             <tr>
@@ -90,10 +90,10 @@ export default class ContactForm extends Component {
               </td>
             </tr>
             <tr>
-              <td className='contact-label'><label htmlFor='title'>Message Title:</label></td>
+              <td className='contact-label'><label htmlFor='email'>Return Email:</label></td>
               <td style={{ lineHeight: '1em' }}>
-                <input type='text' name='inquiry[title]' className='contact-input' />
-                { this.fieldError('inquiry[title]') }
+                <input type='text' name='inquiry[email]' className='contact-input' />
+                { this.fieldError('inquiry[email]') }
               </td>
             </tr>
             <tr>
@@ -110,7 +110,7 @@ export default class ContactForm extends Component {
         </table>
         <input 
           type='submit' 
-          value='Send it!' 
+          value='Send' 
           id='contact-submit' 
         />
       </form>
