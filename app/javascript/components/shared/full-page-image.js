@@ -63,9 +63,8 @@ export default class FullPageImage extends Component {
   render() {
     this.setBackground()
     return (
-      <div style={{width: '100%', backgroundColor: 'black'}}>
+      <div style={{width: '100%', backgroundColor: 'black'}} data-name={this.props.sectionName}>
         <div 
-          data-name={this.props.sectionName}
           className='full-page'
           style={{
             height: (this.props.height || '250vh'),

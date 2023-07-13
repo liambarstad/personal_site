@@ -29,7 +29,7 @@ export default class ContactSection extends Component {
               target='_blank'
             ><img src='/api/v1/images/github-white.png' className='social-link-image'/></a>
             <a
-              href='/api/v1/information/liam-barstad-resume.doc' className='social-link'
+              href='/api/v1/information/liam-barstad-resume.docx' className='social-link'
             ><img src='/api/v1/images/cv.png' className='social-link-image'/></a>
           </div>
         </div>

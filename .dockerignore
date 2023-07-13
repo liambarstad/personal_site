@@ -1,4 +1,11 @@
+/.bundle
+.byebug_history
 Gemfile.lock
 package-lock.json
 yarn.lock
 /node_modules
+secrets
+/public/assets
+/public/packs
+log/*
+tmp/*
