@@ -28,6 +28,6 @@ yarn-debug.log*
 
 Gemfile.lock
 package-lock.json
-secrets
+secrets*
 yarn.lock
 /config/credentials.yml.enc

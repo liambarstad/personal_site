@@ -23,7 +23,7 @@ export default class ProjectItem extends Component {
               <p className='project-header'>
                 {this.props.name} - {this.props.date}
                 {this.props.url ? <a className='project-link' href={'https://'+this.props.url}>{this.props.url}</a> : ''}
-                {this.props.github ? <a className='project-link' href={'https://'+this.props.github}>
+                {this.props.github ? <a className='project-link' href={this.props.github} target='_blank'>
                   <img src='/api/v1/images/github.png' className='project-github-link'/>
                 </a> : ''}
               </p>

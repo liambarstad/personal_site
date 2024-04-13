@@ -11,7 +11,6 @@ export default class BlogSection extends Component {
         maxScroll={this.props.maxScroll}
         backgroundPosFactor={2.5}
         sectionName='blog'
-        height='200vh'
       >
         <FloatingInfo
           offsetTop='20vh'

@@ -1,5 +1,5 @@
 class InquiriesMailer < ApplicationMailer
-  default to: ENV['inquiry_email']
+  default to: ENV['INQUIRY_EMAIL_RECIPIENT']
 
   def inquire(email:, name:, message:, organization:, attached_resources: [])
     add_attachments attached_resources
