@@ -3,23 +3,29 @@ class SkillsController < ApplicationController
   def index
     render json: {
       languages: [
-        { name: 'Python',
-          description: 'Python is my language of choice for most tasks. It\'s simple, powerful, and arguably the most effective for machine learning and back-end tasks. I use Turing\'s rule of least power, using the simplest language first in most circumstances, to improve iteration speed, reduce technical debt, and avoid uneccessary complexity. I have used Python regularly for most tasks throughout my career.' 
+        { 
+          name: 'Python',
+          description: 'Python is my language of choice in most cases. It\'s simple, powerful, and arguably the most effective for machine learning and data science tasks. I use Turing\'s rule of least power, using the simplest language first in most circumstances, to improve iteration speed, reduce technical debt, and avoid uneccessary complexity. I have used Python for most projects throughout my career.' 
         },
-        { name: 'JavaScript',
-          description: 'It has been said that anything that can be written in JavaScript will, eventually, be written in JavaScript. While I don\'t agree with this in all circumstances, I lean on JavaScript for any front end or UI-oriented tasks. I have used React.js extensively, as well as React Native, and developed custom widgets and front-end hooks to gather user data from some of the world\'s largest companies. Whether it\'s an internal tool, or a standalone app, I believe a good user interface is crucial for the user to achieve their goals.'
+        {
+          name: 'Golang',
+          description: 'I am using Go extensively in my current research, developing a new type of relational database that allows for incredibly fast querying (patent pending). I am a big fan of Go\'s explicit error handling, functional structure, and native parallelism. Depending on the infrastructure and goals of a particular pipeline, I would implement Go for speed, paralellism, and reliability in ETL tasks.'
         },
         {
           name: 'SQL',
-          description: 'If there\'s one thing in the world I feel comfortable bragging about, it\'s my SQL skills. I have used SQL to perform many complicated mathematical tasks. I wrote a kernel two sample test, mapping user attributes in hilbert space. I have performed fourier transformations, and written poisson distribution calculations, even performed machine learning and time series analysis, using nothing but SQL. I feel that it is often optimal to perform as many computationally intensive tasks as possible in SQL, before the data is transformed and loaded somewhere else.'
+          description: 'If there\'s one thing in the world I feel comfortable bragging about, it\'s my proficiency in SQL. I have used SQL to perform many complicated mathematical tasks. I have written a kernel two sample test, mapping user attributes in hilbert space. I have performed fourier transformations, calculated poisson distributions, analyzed time series data, and applied machine learning algorithms in raw SQL. I feel that it is often optimal to perform a reasonable number of data transformations in SQL before the data is further manipulated and loaded somewhere else.'
+        },
+        { 
+          name: 'JavaScript',
+          description: 'It has been said that anything that can be written in JavaScript will, eventually, be written in JavaScript. While I don\'t agree with this in all circumstances, I lean on JavaScript for any front end or UI-oriented tasks. I have used React.js extensively, and have used React Native and Node.js for various applications. Whether it\'s a standalone app or internal tool, I believe a good user interface is crucial for the user to achieve their goals.'
         },
         {
           name: 'Ruby',
-          description: 'Ruby is the first language that I learned all the way through, and studying Ruby is how I learned most of the advanced programming principles that I know now. Although I have largely moved on to other languages, I transfer my knowledge of proper coding practices that Ruby is famous for into everything I do. It is because of my background in this language that I write clean, encapsulated, DRY, and test-driven code, whether the codebase is object-oriented, composed, or functional.'
+          description: 'Ruby is arguably the first language that I learned all the way through, focusing on back-end web development using Rails. Although I have largely moved on to other languages, my experience with Ruby and Rails informs many of the structual paradigms that I use to write code in any language. Concepts that I have learned from this language include proper Object-Oriented design (when appropriate), Test-Driven Development, developer empathy, encapsulation, polymorphism, duck-typing, and the importance of DRY code.'
         },
         {
           name: 'C++',
-          description: 'During my early education, I took a number of C++ classes, that served as an introduction to programming. Most of the languages I work with nowadays do not have pointers, manual memory allocations, fixed-length arrays, or custom garbage collection, but it is this peripheral knowledge that allows me to step into the world of staticly types languages at will.'
+          description: 'During my early education, I took a number of C++ classes that served as an introduction to programming. Most of the languages I work with nowadays do not have pointers, manual memory allocations, fixed-length arrays, or custom garbage collection, but it is this peripheral knowledge that allows me to step into the world of statically types languages when necessary.'
         },
         {
           name: 'Cypher',
@@ -29,80 +35,80 @@ class SkillsController < ApplicationController
       libraries: [
         {
           name: 'Pytorch',
-          description: 'Pytorch is my deep learning framework of choice in most cases due to it\'s ease in debugging, speed, and pythonic structure. I have used it at AT&T for time series analysis and LSTMs, in my work with deep text-to-speech algorithms, and extensively at the UCSD Machine Learning bootcamp.'
+          description: 'Pytorch is my deep learning framework of choice in most cases due to it\'s ease in debugging, speed, and pythonic structure. I have used it for time series analysis and LSTMs, in my work with deep text-to-speech algorithms (such as Tacotron 2 and MOSNet), and extensively in my education.'
         },
         { name: 'Tensorflow',
           description: 'I have used Tensorflow to write and modify DQNs and DDPGs (reinforcement learning algorithms) in my work as a machine learning consultant, for use in predicting stock trends and conducting arbitrage. The library was also taught at my Machine Learning bootcamp, and I use it for its variety of datasets, algorithms, and helpers.'
         },
         {
           name: 'Airflow',
-          description: 'I have used Apache Airflow for numerous ETL tasks, in my work at Quantum Metric and AT&T. I used it at AT&T to create an alerting system that is 15x faster than any of our vendor tools. I used it at Quantum Metric to provide custom aggregated reports to clients, after querying the data warehouse, deployed on Kubernetes'
+          description: 'I have used Apache Airflow for numerous ETL tasks, in my work at Quantum Metric and AT&T. I used it at AT&T to create an alerting system that is 1000x faster than any other vendor tools. I used it at Quantum Metric to provide custom aggregated reports to clients, after querying the data warehouse, deployed on Kubernetes'
         },
         {
           name: 'Spark',
-          description: 'I have used spark extensively for projects and curriculum at my machine learning bootcamp. I cannot claim to have used it in large-scale production applications yet, but my intimate familiarity with pandas, numpy, SQL, and devops make the transition very easy.'
+          description: 'I have used Spark to deploy data pipelines across many smaller on-premises worker nodes, and in situations where individual workers may not always be reliable. I have also integrated Spark clusters with Databricks. Spark was taught at my Machine Learning bootcamp, and I have used it for various ETL tasks.'
         },
         {
           name: 'Neo4j',
-          description: 'I love Neo4j and graph databases, and have used Cypher to improve query performance by 15-20x in production applications. I have found that mapping relations as nodes and edges, as opposed to the sets of SQL, can be incredibly fast, insightful, and far easier to run clustering and graph-based ML on, using libraries like APOC.'
+          description: 'I love Neo4j and graph databases, and find that representing data on a graph can vastly increase query performance and allows for more complicated relations in the data. At AT&T, I used a graph to speed up the monitoring and alerting pipeline by a factor of 1000x, while maintaining the dats\'s relational structure.'
         },
         {
           name: 'Flask',
-          description: 'Flask is ideally what I use for microservices, and for any sort of back-end interface. I appreciate its customizability and its lightweight nature. What Flask lacks in middleware out of the box, I have the expertise to include manually. I am very familiar with Flask structure, and how to add the packages necessary to meet the needs of the application.'
+          description: 'Flask is ideally what I use for microservices, or any sort of back-end interface. I appreciate its customizability and its lightweight nature. What Flask lacks in middleware out of the box, I have the expertise to include manually. I am very familiar with Flask structure, and how to add the packages necessary to meet the needs of the application.'
         },
         {
           name: 'React.js',
-          description: 'React is my go-to front end framework. In fact, I used it to create this site. If you look closely, you\'ll notice that the CSS for the background image of this section is dynamically generated in React as you scroll. The layers of the image move at different rates, creating a true 3D effect. You could probably also notice that it loads lazily to speed up performance, and only sets a single event listener for all the scrolling events site-wide. Besides that, I am very familiar with proper state control, design paradigms, composition, and creating interfaces that are pleasurable to look at and interact with.'
+          description: 'React is my go-to front end framework. In fact, I used React to create this site. If you look closely, you\'ll notice that the CSS for the background image of this section is dynamically generated by JavaScript in React as you scroll (please feel free to let me know if it lags, but I doubt that it will). The layers of the image move at different rates, creating a true 3D effect. This site also loads lazily to speed up performance, and only sets a single event listener for all the scrolling events site-wide. I am very familiar with proper state control, design paradigms, composition, and creating interfaces that are pleasurable to look at and interact with.'
         },
         {
           name: 'React Native',
-          description: 'I have used React Native for a number of personal projects, and brief contracts early on in my career. I would use it if I ever wanted to get a mobile app of the ground quickly, and I appreciate the extensibility of its cross-platform nature. I could easily contribute to a React Native app if given the opportunity.'
+          description: 'I have used React Native for a number of personal projects, and brief contracts early on in my career. I can use it to get a mobile app off the ground quickly, and set up CI/CD using AppCenter. I appreciate that the package is cross-platform, and I could easily contribute to a React Native app if given the opportunity.'
         },
         {
-          name: 'Ruby on Rails',
-          description: 'My back-end web development bootcamp in 2017 was focused primarily on Ruby on Rails, and Turing School of Software and Design is notoriously rigorous. Suffice it to say, the design paradigms and best practices were drilled into my brain. I have not used Rails much lately, even though this website is built on Rails, due to its slow performance in most tasks. Regardless, I would find it easy to pick up a Rails project if the need were to arise, however I would personally more likely opt for Django.'
+          name: 'Rails',
+          description: 'My back-end web development bootcamp in 2017 was focused primarily on Ruby on Rails, and Turing School of Software and Design is notoriously rigorous. I am intimately familiar with Rails design paradigms and best practices. The back end of this website is also is built on Rails. I appreciate the extensibility that Rails provides, and I would consider it for use in back-end services that are primarily web-based and customer facing. I would find it easy to pick up a Rails project if the need were to arise.'
         },
         {
           name: 'Redis',
-          description: 'I use Redis as a cache naturally whenever I need to put data in a low-latency intermediary state, before pushing to a larger database. I am also a big fan of RedisGraph, which I have used numerous times for projects and production applications. Of course, I use the cache sparingly, but I know when to use it.'
+          description: 'I use Redis as a cache naturally whenever I need to put data in a low-latency intermediary state, before pushing to a larger database. I am also a big fan of RedisGraph, which I have used numerous times for projects and production applications.'
         },
         {
           name: 'Selenium',
-          description: 'I use Selenium for many different tasks. When building production applications, I use it frequently for integration testing. If there is a process I want to automate, I use it for that purpose. Sometimes it is used in CX for production testing. I also use it to scrape data for machine learning models if necessary.'
+          description: 'I have developed large-scale production applications for synthetic monitoring and testing using Selenium and Behave, and I use it frequently for integration testing and web scraping.'
         }
       ],
       devops: [
         {
           name: 'Linux',
-          description: 'I use Arch Linux for the sole purpose of telling everyone I know about it. Just kidding, but yes I do use Arch. In all seriousness, the Linux/Unix terminal and bash scripts are my console of choice and I have been using them for quite a long time.'
+          description: 'Linux/UNIX is my console of choice, and I write bash scripts and chron jobs for automation and deployments. I am comfortable with the command line, as well as permissions and file structure. I also use Arch Linux personally, for the sole purpose of telling everyone I know about it.'
+        },
+        {
+          name: 'Git',
+          description: 'I have been trained in proper Git practices and workflow management from the very beginning, using vanilla Git in a linux environment, Github, Gitlab, and Bitbucket. I have established CI/CD pipelines using Jenkins integration, AppCenter for native apps, and Gitlab pipelines. I use Git for version control in all of my projects.'
         },
         {
           name: 'Docker',
-          description: 'Docker is second nature to me at this point, when building any app that needs to be containerized, packages, and/or orchestrated. I typically write a Dockerfile when I start a project, and deploy early and often.'
-        },
-        {
-          name: 'MLFlow',
-          description: 'I use MLFlow for machine learning services where the main purpose is to experiment with and deploy an optimal model, especially when the end result does not need to consume a data stream (when it does, I would use Kubeflow). It offers experiment tracking and deployment options that are incredibly helpful and extensible, as well as easily integratable into other systems.'
+          description: 'I use Docker frequently when packaging and deploying apps or services that need to be containerized and/or orchestrated. I typically write a Dockerfile when I start a project, and deploy early and often. This website even has a Dockerfile, which is stored in GCP\'s container registry and deployed in Cloud Run.'
         },
         {
           name: 'Kubernetes',
-          description: 'I have used Kubernetes to deploy any apps that need to be orchestrated and work reliably in real-time. At Quantum Metric, I deployed an Airflow pipeline in Kubernetes, and my codebase is running on a cluster at AT&T. For machine learning, I use Kubeflow to deploy models as services.'
+          description: 'I use Kubernetes in pipelines for parallelism and orchestration, to handle deployments, security, and scaling. I use KubernetesExecutor with Airflow as well, and Airflow is the service that I am most familiar with interacting with using Kubernetes (at Quantum Metric, AT&T, and personally). I use Helm charts with Ansible to reuse cluster configuration, and I am becoming more familiar with Kubeflow for orchestraing ML training pipelines and managing experiments.'
         },
         {
-          name: 'Kubeflow',
-          description: 'My latest projects use Kubeflow as an extension to Kubernetes to orchestrate machine learning pipelines in the same way that Kubernetes can orchestrate web applications and data pipelines. I will be using Kubeflow more and more over time, especially when projects require real-time ingestion from data streams.'
+          name: 'CI/CD',
+          description: 'I have used Jenkins, Gitlab CI, and Github Actions for CI/CD pipelines, and I am familiar with the concepts of continuous integration and continuous deployment. I use CI and CD pipelines to typically run the test suite and health checks before deploying to lower environments such as test, development, and staging.'
         },
         {
-          name: 'Helm',
-          description: 'I\'ve used Helm to deploy Airflow pipelines, and typically rely on it as the scaffolding for any Kubernetes cluser. I start with a Helm chart in the same way that I would start an application with a Dockerfile.'
+          name: 'MLFlow',
+          description: 'I use MLFlow to keep track of Machine Learning experiments, results, and models. I integrate it into Airflow and/or Kubernetes pipelines, on dedicated hardware or on the cloud, to enable data scientists to deploy models as services. You can see an example of my work with MLFlow in my PeeWee-TTS project listed in the "Projects" section. I am also familiar with the API and CLI.'
         },
         {
           name: 'AWS',
-          description: 'I have used numerous AWS services and apps, including EC2 for dedicated servers, Lambda for one-off tasks and occasionally for ETL, CloudFormation to run large scale tasks, and Sagemaker for machine learning algorithms that need to exist on the cloud. I used AWS to deploy the MVP for when I worked for Zober, as well as for my DDPG at Align Tech and Finance.'
+          description: 'I have used numerous AWS services and apps, including EC2 for dedicated servers, Lambda for one-off tasks and occasionally for ETL, CloudFormation to run large scale tasks, and Sagemaker for machine learning algorithms that need to exist on the cloud. I am also familiar with configuring firewall and IAM permissions, as well as production monitoring in CloudWatch. I used AWS to deploy the MVP when I worked at Zober, as well as my DDPG at Align Tech and Finance.'
         },
         {
           name: 'GCP',
-          description: 'I have used Google BigQuery to a frightening degree, but besides that, this website is actually deployed to cloud run, using Google domains. I have also used a variety of GCP Python APIs and storage, and I appreciate how easy it is to integrate with other services using the cloud console and cli.'
+          description: 'I am incredibly proficient in Google BigQuery, and this website itself is deployed to Cloud Run using Google Domains and Artifact Registry. I have also used a variety of GCP Python APIs and storage, and I appreciate how easy it is to integrate with other services using the cloud console and CLI.'
         }
       ],
       machine_learning: [
@@ -137,6 +143,24 @@ class SkillsController < ApplicationController
         {
           name: 'Text-to-Speech',
           description: 'At my Machine Learning bootcamp, my capstone project (which you can find below) is a text-to-speech agent. Thus, I am very familiar with TTS and have additionally read 20-30 papers, including some of the latest, on the subject. My next goal for my TTS project is to upgrade to a diffusion algorithm, using a paper written in early 2023.'
+        }
+      ],
+      soft_skills: [
+        {
+          name: 'Mentorship',
+          description: 'I am comfortable sharing whatever knowledge I learn and possess with others, in a way that is digestible to team members at any skill level. At Zober, I lead a team of 4 Ruby developers in an Agile environment, providing guidance towards recent bootcamp and college graduates. At AT&T, I have taught multiple non-technical employees how to code in Python and JavaScript, using proper coding principles with OOP and composition, and managing features with Git. I am proud to announce that 4 of my dedicated and passionate pupils (at time of writing) are now working on production code and following best practices without issue. I am currently creating training videos and Python courses that will be used across multiple teams.'
+        },
+        {
+          name: 'Agile/Scrum',
+          description: 'I am comfortable utilizing Agile properly, holding standups, writing user stories, and managing epics, alongside ticketing systems such as Jira and Git workflows. I use Agile for product and pipeline development, and anything that requires a high degree of iteration and feedback. I have used Agile in my work at all my previous companies. I believe that Agile can also be applied, where appropriate, to Machine Learning projects and experiments, especially services with well-established goals, metrics, and deployments.'
+        },
+        {
+          name: 'Customer Success',
+          description: 'I started off both my positions at Quantum Metric and AT&T in more customer-facing B2B environments, having to regularly interface with client and vendor teams. I have used this experience to inform my development practices, and I believe that it is crucial to understand the customer\'s needs and goals in order to deliver a product that is truly valuable,'
+        },
+        {
+          name: 'Code Reusability',
+          description: 'From my background in Ruby and Rails, to my current work in Go and Python, I have always endeavored to write idiomatic code that follows the design principles of the libraries and languages at hand. '
         }
       ]
     }

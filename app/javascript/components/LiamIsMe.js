@@ -15,6 +15,19 @@ export default class LiamIsMe extends Component {
       minScroll: document.documentElement.scrollTop,
       maxScroll: window.innerHeight,
     }
+    console.log(`
+---------------------------------------------------
+ _    _  _____  _      _____  _____ ___  ___ _____
+| |  | ||  ___|| |    /  __ \\|  _  ||  \\/  ||  ___| 
+| |  | || |__  | |    | /  \\/| | | || .  . || |__   
+| |/\\| ||  __| | |    | |    | | | || |\\/| ||  __|  
+\\  /\\  /| |___ | |____| \\__/\\\\ \\_/ /| |  | || |___  
+ \\/  \\/ \\____/ \\_____/ \\____/ \\___/ \\_|  |_/\\____/
+
+---------------------------------------------------
+
+Please feel free to inspect this code as much as you'd like. Or try deploying it locally! The code can be found here: https://github.com/liambarstad/personal_site
+`)
   }
 
   componentDidMount() {

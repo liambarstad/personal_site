@@ -67,7 +67,8 @@ export default class FullPageImage extends Component {
         <div 
           className='full-page'
           style={{
-            height: (this.props.height || '250vh'),
+            height: 'auto',
+            paddingBottom: '15%',
             background: this.backgroundSpecs(),
             ...this.props.style
           }}

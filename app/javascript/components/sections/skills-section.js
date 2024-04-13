@@ -136,6 +136,20 @@ export default class SkillsSection extends Component {
               </table>
             </div>
           </FloatingInfo>
+
+          <FloatingInfo
+            position='relative'
+            showWhenWithin='85vh'
+            minScroll={this.props.minScroll}
+            maxScroll={this.props.maxScroll}
+          >
+            <div className='skill-list modal gray-background'>
+              <h2 style={{textAlign: 'center', marginBottom: '1em'}}>Soft Skills</h2>
+              <table className='skill-table'>
+                {this.state.skills.soft_skills}
+              </table>
+            </div>
+          </FloatingInfo>
         </div>
         
       </FullPageImage>

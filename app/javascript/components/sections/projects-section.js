@@ -14,7 +14,6 @@ export default class ProjectsSection extends Component {
     return (
       <FullPageImage
         imageName='tangled'
-        height='2200px'
         minScroll={this.props.minScroll}
         maxScroll={this.props.maxScroll}
         backgroundPosFactor={2.5}
@@ -45,14 +44,50 @@ export default class ProjectsSection extends Component {
               start={this.startOffset}
               minScroll={this.props.minScroll}
               maxScroll={this.props.maxScroll}
-              date='February 2023'
+              date='March 2024'
+              name='NLP Trading'
+              github='https://github.com/tonydaggett/NLP_trading_strategy'
+              imgSrc='stocks'
+            >
+              <ul>
+                <li>Collaboration with <a class='softgreen' href='https://www.linkedin.com/in/tonydaggett/' target='_blank'>Tony Dagget</a></li>
+                <li>Predicts NLP stock signals in sentiment model for use in trading model</li>
+                <li>Airflow pipeline using TaskFlow API</li>
+                <li>Postgres database for technical indicators, MongoDB for storage of news files, Vector database for article vectors</li>
+                <li>Running on local Kubernetes cluster using Airflow KubernetesExecutor</li>
+              </ul>
+            </ProjectItem>
+
+            <ProjectItem
+              index={0}
+              start={this.startOffset}
+              minScroll={this.props.minScroll}
+              maxScroll={this.props.maxScroll}
+              date='January 2024'
+              name='Content-Aware MOS Prediction'
+              github='https://github.com/liambarstad/content_aware_mos_prediction'
+              imgSrc='content_aware_mos'
+            >
+              <ul>
+                <li>Predicts Mean Opinion Score (MOS) of synthesized speech snippets, using NLP features</li>
+                <li>Suite of modified MOSNet, LDNet and SSL-MOS models</li>
+                <li>Models built in Pytorch</li>
+              </ul>
+            </ProjectItem>
+
+            <ProjectItem
+              index={0}
+              start={this.startOffset}
+              minScroll={this.props.minScroll}
+              maxScroll={this.props.maxScroll}
+              date='February-July 2023'
               name='Pee Wee Text-to-Speech'
               url='peewee-tts.liambarstad.com'
               github='https://github.com/liambarstad/peewee-tts'
               imgSrc='peewee'
             >
               <ul>
-                <li>Generates speech that sounds like the beloved character Pee Wee Herman</li>
+                <li>Generates speech with the goal to mimic the context-dependent nature of Pee Wee Herman's voice</li>
                 <li>Combination of 3 deep neural networks trained separately</li>
                 <li>LSTM encoder generates speaker embeddings specific to the character</li>
                 <li>Tacotron 2 text synthesizer, attention-based DNN that takes speaker embeddings and generates spectrograms</li>
@@ -74,7 +109,7 @@ export default class ProjectsSection extends Component {
               <ul>
                 <li>Built in Rails 6.1 and React</li>
                 <li>Deployed on GCP and Docker</li>
-                <li>First known actual 3D effect with 7 layers moving at different speeds (see background graphic on top page)</li>
+                <li>Very rare 3D effect with 7 layers moving at different speeds (see background graphic on top page)</li>
               </ul>
             </ProjectItem>
 
